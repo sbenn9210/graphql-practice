@@ -60,12 +60,29 @@ const { GraphQLServer } = require("graphql-yoga");
 const typeDefs = `
   type Query {
     hello: Test
+    shawn: Brittany
+    vehicle: Car
   }
 
   type Test {
     desc: String
   }
+
+  type Brittany {
+    boyfriend: String!
+    fiance: String
+    age: Int
+    engaged: Boolean
+  }
   
+  type Car {
+    color: String
+    VIN: String
+    year: Int
+    make: String
+    model: String
+
+  }
 `;
 
 const resolvers = {
@@ -73,6 +90,23 @@ const resolvers = {
     hello: () => {
       return {
         desc: "Hello World!",
+      };
+    },
+    shawn: () => {
+      return {
+        boyfriend: "Shawn",
+        fiance: "Might be Shawn",
+        age: 24,
+        engaged: false,
+      };
+    },
+    vehicle: () => {
+      return {
+        color: "Black",
+        VIN: "39GDD9837F8",
+        year: 1998,
+        make: "Toyota",
+        model: "Camry",
       };
     },
   },
