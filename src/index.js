@@ -62,6 +62,7 @@ const typeDefs = `
     hello: Test
     shawn: Brittany
     vehicle: Car
+    mula: Money
   }
 
   type Test {
@@ -83,6 +84,18 @@ const typeDefs = `
     model: String
 
   }
+
+  type Money {
+    country: String
+    amount: Int
+    accepted: States
+    test: [States]
+  }
+
+  type States {
+      first: String
+      second: String
+    }
 `;
 
 const resolvers = {
@@ -107,6 +120,27 @@ const resolvers = {
         year: 1998,
         make: "Toyota",
         model: "Camry",
+      };
+    },
+
+    mula: () => {
+      return {
+        country: "United States",
+        amount: 10039932,
+        test: [
+          {
+            first: "true",
+            second: "false",
+          },
+          {
+            first: "false",
+            second: "false",
+          },
+        ],
+        accepted: {
+          first: "Texas",
+          second: "New York",
+        },
       };
     },
   },
